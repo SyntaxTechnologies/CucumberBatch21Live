@@ -1,0 +1,120 @@
+what is cucumber?
+Why do we need cucumber?
+Benefits of cucumber in selenium? -
+no reports in selenium
+no control over the execution in selenium
+no code reusability concept in selenium
+
+create the project -
+
+maven project
+java, selenium, cucumber  - add dependencies
+
+under test -
+java - for all technical stuff, packages, classes, methods
+resources - for all non - technical stuff
+.m2 folder created automatically in your computer
+
+components of cucumber -
+
+feature file - to write scenarios / test cases
+
+gherkin language
+
+Given user is able to access HRMS application
+When user enters admin username and password
+And user clicks on login button
+Then user is able to see dashboard page
+
+User story - Search employee in the system
+
+Case 1 - Search employee by id
+
+
+Case 2 - Search employee by name
+
+
+utilities are the files. methods, classes which are common to the whole project
+
+feature file
+step definition class
+runner class - to control the overall flow of execution, generate step defs, create reports etc
+
+Class 2 -  live class
+
+components of cucumber -
+
+feature file - to write scenarios
+step definition classes
+runner class - features, glue, dryrun, tags, plugins
+
+background - in one feature file, till the time all the steps of all scenarios are same
+it means the flow of scenarios is not breaking
+
+background is applicable to one feature file
+it means for every feature file, background is different
+
+pre condition and post condition of the whole project needs to be written under hooks
+hooks in cucumber -
+
+there are 2 hooks in cucumber -
+@before - pre condition
+@after - post condition
+
+hooks must be implemented only under steps package
+
+Order of executio will be -
+Hooks (pre condition) -> Background -> Scenario -> hooks (post condition)
+
+Data driven testing -
+when one test case executes against multiple sets of data then it is data driven testing
+
+using examples table -
+hooks 3 times
+background 3 times
+scenario 3 times
+
+data table -
+hooks 1 time
+background 1 time
+step of scenario executes based on total number of data sets
+data table is for only one step but examples table is  for the complete scenario
+
+K,V1 - map1
+K,V2 - map2
+K,V3 - map3
+
+
+Framework -
+organised structure of folders and packages as per the standards
+easily understandable and readable for other users
+control of execution - single point of execution
+no hard coded data should be sent - it should be parameterized
+easily scalable - it should be easily scalable
+maintenance - it should be maintained with ease.
+no method should be written again and again in case of re-use (user defined methods)
+proper reporting structure must be available
+
+--openBrowserAndLaunchApplication
+cross browser testing -
+
+page object model design pattern
+all the locators/elements of one page should be present in the same class
+
+confirmation - verification validation check points
+assertions
+in cucumber, we use junit assertions
+
+filename - date and time .png
+
+target folder is the place where you get all the reports
+
+
+
+
+
+
+
+
+
+

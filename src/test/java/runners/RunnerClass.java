@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
        // features = "src/test/resources/features/Login.feature"
         // glue keyword we use to provide the name of the package we use for step def
         glue = "steps",
+
         //when i set the value of dry run to true, it stops actual execution and scans
         //all the steps, it any step def is missing, it will generate
         //to execute the code, we set the value of it to false

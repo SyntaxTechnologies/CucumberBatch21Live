@@ -18,8 +18,9 @@ import org.junit.runner.RunWith;
         dryRun = false,
         //pretty keyword prints all the steps in console
         //rerun plugin generates  txt file contains the path of failed test cases
-        plugin = {"pretty", "html:target/cucumber.html","rerun:target/failed.txt"},
-        tags = "@invalid"
+        plugin = {"pretty", "html:target/cucumber.html","rerun:target/failed.txt",
+        "json:target/cucumber.json"},
+        tags = "@tekia"
 )
 
 

@@ -109,6 +109,32 @@ filename - date and time .png
 
 target folder is the place where you get all the reports
 
+Class 4 -
+
+smoke - smoke runner class
+regression - regression runner class
+runner class
+failed runner - for failed test cases
+
+build management tool - maven
+
+execution, report generation, control of test cases etc should be done from one file
+
+pom.xml file
+
+how to run runner class from pom.xml file
+we have one plugin - maven surefire plugin
+
+it helps your project to be executed as a single build
+
+
+maven lifecycle -
+install - to install all the needed jars
+compile - checks if everything written correct
+package - conversion of code
+verify - validity of code
+clean - it deletes target folder
+test - to test the code
 
 
 

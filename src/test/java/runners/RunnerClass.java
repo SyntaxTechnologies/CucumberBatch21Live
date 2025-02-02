@@ -20,7 +20,7 @@ import org.junit.runner.RunWith;
         //rerun plugin generates  txt file contains the path of failed test cases
         plugin = {"pretty", "html:target/cucumber.html","rerun:target/failed.txt",
         "json:target/cucumber.json"},
-        tags = "@tekia"
+        tags = "@DB"
 )
 
 

@@ -14,7 +14,7 @@ Feature: Adding an employee using different methods
     And user clicks on save button
     Then employee added successfully
 
-  @addemployee
+  @addemployee @DB
   Scenario: Adding an employee using feature file
     And user enters data "andrey" and "ms" and "ziad"
     And user clicks on save button

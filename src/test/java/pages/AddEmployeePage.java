@@ -19,6 +19,11 @@ public class AddEmployeePage extends CommonMethods {
     @FindBy(id="lastName")
     public WebElement lastNameLocator;
 
+
+    @FindBy(id="employeeId")
+    public WebElement employeeId;
+
+
     public AddEmployeePage(){
         PageFactory.initElements(driver, this);
     }

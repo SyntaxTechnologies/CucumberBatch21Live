@@ -2,9 +2,11 @@ package steps;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import utils.CommonMethods;
+import utils.DBUtils;
 import utils.ExcelReader;
 
 import java.io.IOException;
@@ -12,6 +14,12 @@ import java.util.List;
 import java.util.Map;
 
 public class AddEmployeeSteps extends CommonMethods {
+
+    String expectedFN;
+    String expectedMN;
+    String expectedLN;
+    String employeeId;
+
 
     @When("user clicks on Add Employee option")
     public void user_clicks_on_add_employee_option() {
@@ -36,30 +44,39 @@ public class AddEmployeeSteps extends CommonMethods {
 
     @When("user clicks on save button")
     public void user_clicks_on_save_button() {
-     //   WebElement saveButton = driver.findElement(By.id("btnSave"));
-        //saveButton.click();
         click(addEmployeePage.saveButton);
+    }
+
+
+
+    @When("user enters data {string} and {string} and {string}")
+    public void user_enters_data_and_and
+            (String firstname, String middlename, String lastname) {
+
+        expectedFN=firstname;
+        expectedMN=middlename;
+        expectedLN=lastname;
+        employeeId=addEmployeePage.employeeId.getAttribute("value");
+
+
+        sendText(firstname, addEmployeePage.firstNameLocator);
+        sendText(middlename, addEmployeePage.middleNameLocator);
+        sendText(lastname, addEmployeePage.lastNameLocator);
     }
 
     @Then("employee added successfully")
     public void employee_added_successfully() {
 
-        System.out.println("employee added");
-    }
+        String query="select emp_firstname,emp_middle_name,emp_lastname from hs_hr_employees where employee_id="+employeeId;
+      List<Map<String,String>> actualData= DBUtils.fetch(query);
+      Map<String,String> rowMap=actualData.get(0);
+      String actualFN=rowMap.get("emp_firstname");
+      String actualMN=rowMap.get("emp_middle_name");
+      String actualLN=rowMap.get("emp_lastname");
+        Assert.assertEquals(expectedFN,actualFN);
+        Assert.assertEquals(expectedMN,actualMN);
+        Assert.assertEquals(expectedLN,actualLN);
 
-    @When("user enters data {string} and {string} and {string}")
-    public void user_enters_data_and_and
-            (String firstname, String middlename, String lastname) {
-      //  WebElement firstNameLocator = driver.findElement(By.id("firstName"));
-       // WebElement middleNameLocator = driver.findElement(By.id("middleName"));
-       // WebElement lastNameLocator = driver.findElement(By.id("lastName"));
-
-     //   firstNameLocator.sendKeys(firstname);
-     //   middleNameLocator.sendKeys(middlename);
-      //  lastNameLocator.sendKeys(lastname);
-        sendText(firstname, addEmployeePage.firstNameLocator);
-        sendText(middlename, addEmployeePage.middleNameLocator);
-        sendText(lastname, addEmployeePage.lastNameLocator);
     }
 
     @When("user enters {string} and {string} and {string}.")

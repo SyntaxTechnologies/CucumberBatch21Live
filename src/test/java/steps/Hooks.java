@@ -13,7 +13,7 @@ public class Hooks extends CommonMethods {
     //this is for pre condition of the project
     @Before
     public void start() throws IOException {
-//        openBrowserAndLaunchApplication();
+        openBrowserAndLaunchApplication();
     }
 
     @After
